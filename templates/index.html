@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Income and Spending Survey for Healthcare Analysis</title>
+    <title>Healthcare Product Spending Survey</title>
 
     <!-- Internal CSS for styling the form -->
     <style>
@@ -108,13 +108,14 @@
 
         <!-- Form to collect user data -->
         <form method="POST">
-            <!-- Age input field -->
+            <!-- Age input field with restrictions -->
             <label for="age">Age:</label>
-            <input type="number" name="age" id="age" required>
+            <input type="number" name="age" id="age" min="1" max="100" required>
 
-            <!-- Gender dropdown -->
+            <!-- Gender dropdown marked as required -->
             <label for="gender">Gender:</label>
             <select name="gender" id="gender" required>
+                <option value="">Select Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
             </select>
