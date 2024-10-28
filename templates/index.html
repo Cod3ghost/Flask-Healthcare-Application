@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income and Spending Survey for Healthcare Analysis</title>
+
+    <!-- Internal CSS for styling the form -->
+    <style>
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        /* Form container styling */
+        .form-container {
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+
+        /* Title and description styling */
+        .form-title {
+            color: #333333;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .form-description {
+            color: #666666;
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        /* Label and input field styling */
+        label {
+            font-weight: bold;
+            color: #555555;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 10px 0;
+            border-radius: 4px;
+            border: 1px solid #cccccc;
+            box-sizing: border-box;
+        }
+
+        /* Styling checkboxes and expense items */
+        .expense-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .expense-item label {
+            flex-grow: 1;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        /* Button styling */
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #ffffff;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <!-- Form container to keep everything centered and organized -->
+    <div class="form-container">
+        <!-- Title of the form -->
+        <h2 class="form-title">Healthcare Product Spending Survey</h2>
+        <!-- Description text under the title -->
+        <p class="form-description">This survey will help us analyze income and spending patterns to better understand potential needs and affordability for a new healthcare product. Please fill out the information accurately.</p>
+
+        <!-- Form to collect user data -->
+        <form method="POST">
+            <!-- Age input field -->
+            <label for="age">Age:</label>
+            <input type="number" name="age" id="age" required>
+
+            <!-- Gender dropdown -->
+            <label for="gender">Gender:</label>
+            <select name="gender" id="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <!-- Total Income input field -->
+            <label for="total_income">Total Monthly Income:</label>
+            <input type="number" name="total_income" id="total_income" required>
+
+            <!-- Expense Section with checkboxes and corresponding text boxes -->
+            <h3>Select and Enter Your Monthly Expenses</h3>
+
+            <!-- Utilities -->
+            <div class="expense-item">
+                <input type="checkbox" id="utilities_checkbox" onclick="toggleInput('utilities_input')">
+                <label for="utilities_checkbox">Utilities:</label>
+                <input type="number" name="utilities" id="utilities_input" placeholder="Amount" disabled>
+            </div>
+
+            <!-- Entertainment -->
+            <div class="expense-item">
+                <input type="checkbox" id="entertainment_checkbox" onclick="toggleInput('entertainment_input')">
+                <label for="entertainment_checkbox">Entertainment:</label>
+                <input type="number" name="entertainment" id="entertainment_input" placeholder="Amount" disabled>
+            </div>
+
+            <!-- School Fees -->
+            <div class="expense-item">
+                <input type="checkbox" id="school_fees_checkbox" onclick="toggleInput('school_fees_input')">
+                <label for="school_fees_checkbox">School Fees:</label>
+                <input type="number" name="school_fees" id="school_fees_input" placeholder="Amount" disabled>
+            </div>
+
+            <!-- Shopping -->
+            <div class="expense-item">
+                <input type="checkbox" id="shopping_checkbox" onclick="toggleInput('shopping_input')">
+                <label for="shopping_checkbox">Shopping:</label>
+                <input type="number" name="shopping" id="shopping_input" placeholder="Amount" disabled>
+            </div>
+
+            <!-- Healthcare -->
+            <div class="expense-item">
+                <input type="checkbox" id="healthcare_checkbox" onclick="toggleInput('healthcare_input')">
+                <label for="healthcare_checkbox">Healthcare:</label>
+                <input type="number" name="healthcare" id="healthcare_input" placeholder="Amount" disabled>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- JavaScript to toggle the input fields based on checkbox status -->
+    <script>
+        function toggleInput(inputId) {
+            // Toggle the disabled state of the corresponding input field based on checkbox
+            const inputField = document.getElementById(inputId);
+            inputField.disabled = !inputField.disabled;
+        }
+    </script>
+</body>
+</html>
